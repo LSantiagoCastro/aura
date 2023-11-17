@@ -31,16 +31,19 @@ import datetime
 import pytz
 from tiktoken import get_encoding
 import sqlite3
-from keys import apikey
-from keys import TOKEN
+# from keys import apikey
+# from keys import TOKEN
+
+from dotenv import load_dotenv
 # from conexionsqlite import  *
 console = Console()
 
 # ------------------------------------- API KEY OPENAI -------------------------------------- #
-
-openai.api_key = apikey
+load_dotenv()
+apikey = os.getenv('apikey')
+openai.api_key = apikey#apikey
 os.environ['OPENAI_API_KEY'] = apikey
-
+TOKEN = os.getenv('TOKEN')
 # 
 
 
